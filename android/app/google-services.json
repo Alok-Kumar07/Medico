@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "27784756760",
+    "project_id": "medico-50c45",
+    "storage_bucket": "medico-50c45.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27784756760:android:932aca3c9c46dcd0fc0d6d",
+        "android_client_info": {
+          "package_name": "com.medadherence"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPO7-0JBCOEkEn5U73AwjRPZB2aRijv6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
