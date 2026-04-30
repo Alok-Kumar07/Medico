@@ -1,97 +1,261 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+<div align="center">
 
-# Getting Started
+# 💊 MedTrack — Medication Management App
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+### *Never miss a dose. Stay connected with your care team.*
 
-## Step 1: Start Metro
+[![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactnative.dev/)
+[![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/)
+[![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=apple&logoColor=white)](https://developer.apple.com/)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+</div>
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+---
 
-```sh
-# Using npm
-npm start
+## 📱 Overview
 
-# OR using Yarn
-yarn start
+**MedTrack** is a full-featured cross-platform medication management application built with **React Native**. It connects **Patients**, **Doctors**, and **Caregivers** in a unified ecosystem — enabling real-time medication tracking, adherence monitoring, prescription management, and medical report sharing.
+
+> 🎯 Built to solve the real-world problem of medication non-adherence, which affects millions of patients globally.
+
+---
+
+## ✨ Key Features
+
+| Feature | Description |
+|---|---|
+| 🔐 **Role-Based Auth** | Separate flows for Doctor, Patient & Caregiver |
+| 💊 **Medicine Scheduling** | Add medications with custom daily times, meal timing & date ranges |
+| ✅ **Dose Confirmation** | Mark doses as taken with photo proof |
+| 📊 **Adherence Calendar** | Visual calendar showing Taken / Missed / Pending history |
+| 📦 **Stock Tracking** | Real-time pill stock with days-remaining countdown |
+| 🔔 **Notifications** | Smart reminders for upcoming doses |
+| 🩺 **Doctor Dashboard** | Manage patient prescriptions and view medical reports |
+| 👨‍👩‍👦 **Caregiver View** | Monitor assigned patients' adherence and logs |
+| 📄 **Medical Reports** | Upload, view, edit and delete lab reports per patient |
+
+---
+
+## 🖼️ App Screenshots
+
+### 🔐 Authentication
+
+<div align="center">
+<table>
+  <tr>
+    <td align="center"><b>Create Account</b></td>
+    <td align="center"><b>Sign In</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/create_account.png" width="200"/></td>
+    <td><img src="screenshots/sign_in.png" width="200"/></td>
+  </tr>
+</table>
+</div>
+
+> Role selection (Doctor / Patient / Caregiver) during registration routes users to their dedicated experience.
+
+---
+
+### 🧑‍⚕️ Patient Screens
+
+<div align="center">
+<table>
+  <tr>
+    <td align="center"><b>Home Dashboard</b></td>
+    <td align="center"><b>Medicine Stocks</b></td>
+    <td align="center"><b>Medicine Schedule</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/patient_home.png" width="180"/></td>
+    <td><img src="screenshots/patient_stocks.png" width="180"/></td>
+    <td><img src="screenshots/medicine_schedule.png" width="180"/></td>
+  </tr>
+</table>
+</div>
+
+<div align="center">
+<table>
+  <tr>
+    <td align="center"><b>Confirm Dose Modal</b></td>
+    <td align="center"><b>Add Medicine Modal</b></td>
+    <td align="center"><b>My Profile</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/confirm_dose.png" width="180"/></td>
+    <td><img src="screenshots/add_medicine.png" width="180"/></td>
+    <td><img src="screenshots/patient_profile.png" width="180"/></td>
+  </tr>
+</table>
+</div>
+
+---
+
+### 👨‍⚕️ Doctor Screens
+
+<div align="center">
+<table>
+  <tr>
+    <td align="center"><b>Doctor Home</b></td>
+    <td align="center"><b>Doctor Profile</b></td>
+    <td align="center"><b>Manage Schedule</b></td>
+    <td align="center"><b>Patient Reports</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/doctor_home.png" width="160"/></td>
+    <td><img src="screenshots/doctor_profile.png" width="160"/></td>
+    <td><img src="screenshots/manage_schedule.png" width="160"/></td>
+    <td><img src="screenshots/patient_reports.png" width="160"/></td>
+  </tr>
+</table>
+</div>
+
+---
+
+### 🧑‍🤝‍🧑 Caregiver Screens
+
+<div align="center">
+<table>
+  <tr>
+    <td align="center"><b>Caregiver Home</b></td>
+    <td align="center"><b>Patient Search</b></td>
+    <td align="center"><b>Adherence View</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/caregiver_home.png" width="180"/></td>
+    <td><img src="screenshots/patient_search.png" width="180"/></td>
+    <td><img src="screenshots/adherence_view.png" width="180"/></td>
+  </tr>
+</table>
+</div>
+
+---
+
+## 🏗️ Architecture & User Roles
+
+```
+MedTrack App
+│
+├── 🔐 Auth Flow (Shared)
+│   ├── Create Account (Role Selection)
+│   └── Sign In
+│
+├── 🧑‍⚕️ Patient
+│   ├── Home Dashboard (Medicine Log + Next Dose Timer)
+│   ├── Medicine Schedule (Add / View / Edit Meds)
+│   ├── Reports Screen
+│   ├── Notifications
+│   └── Profile (Patient ID, Doctor, Caregiver, Stocks)
+│
+├── 👨‍⚕️ Doctor
+│   ├── Patient List
+│   ├── Patient Detail (Schedule Tab + Reports Tab)
+│   ├── Upload Medical Reports
+│   └── Doctor Profile
+│
+└── 🧑‍🤝‍🧑 Caregiver
+    ├── Assigned Patients List
+    ├── Add Patient (by Patient ID)
+    ├── Patient Adherence View
+    └── Caregiver Profile
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 🚀 Getting Started
 
-### Android
+### Prerequisites
 
-```sh
-# Using npm
-npm run android
+- Node.js >= 18
+- React Native CLI
+- Android Studio / Xcode
+- JDK 17+
 
-# OR using Yarn
-yarn android
-```
+### Installation
 
-### iOS
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/medtrack-app.git
+cd medtrack-app
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+# Install dependencies
+npm install
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
+# For iOS only
 bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
 bundle exec pod install
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### Running the App
 
-```sh
-# Using npm
+```bash
+# Start Metro bundler
+npm start
+
+# Run on Android
+npm run android
+
+# Run on iOS
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+---
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## 📂 Project Structure
 
-## Step 3: Modify your app
+```
+medtrack-app/
+├── src/
+│   ├── screens/
+│   │   ├── auth/          # Login & Register
+│   │   ├── patient/       # Patient screens
+│   │   ├── doctor/        # Doctor screens
+│   │   └── caregiver/     # Caregiver screens
+│   ├── components/        # Reusable UI components
+│   ├── navigation/        # React Navigation setup
+│   ├── services/          # API & Firebase services
+│   └── utils/             # Helper functions
+├── android/
+├── ios/
+└── README.md
+```
 
-Now that you have successfully run the app, let's make changes!
+---
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## 🛠️ Tech Stack
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+- **Framework:** React Native (CLI)
+- **Navigation:** React Navigation
+- **State Management:** Context API / Redux
+- **Backend:** Firebase / Supabase
+- **Notifications:** Firebase Cloud Messaging
+- **Storage:** AsyncStorage
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
+## 🤝 Contributing
 
-You've successfully run and modified your React Native App. :partying_face:
+Contributions are welcome! Please feel free to open issues or submit pull requests.
 
-### Now what?
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+---
 
-# Troubleshooting
+## 📄 License
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+Distributed under the MIT License. See `LICENSE` for more information.
 
-# Learn More
+---
 
-To learn more about React Native, take a look at the following resources:
+<div align="center">
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Made with ❤️ using React Native
+
+⭐ **Star this repo if you found it helpful!** ⭐
+
+</div>
