@@ -105,8 +105,8 @@
   <tr>
     <td><img src="screenshots/doctor_home.png" width="160"/></td>
     <td><img src="screenshots/doctor_profile.png" width="160"/></td>
-    <td><img src="screenshots/manage_schedule.png" width="160"/></td>
-    <td><img src="screenshots/patient_reports.png" width="160"/></td>
+    <td><img src="screenshots/manage_shedule.png" width="160"/></td>
+    <td><img src="screenshots/patient_report.png" width="160"/></td>
   </tr>
 </table>
 </div>
