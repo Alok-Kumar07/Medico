@@ -70,7 +70,7 @@
   <tr>
     <td><img src="screenshots/patient_home.png" width="180"/></td>
     <td><img src="screenshots/patient_stocks.png" width="180"/></td>
-    <td><img src="screenshots/medicine_schedule.png" width="180"/></td>
+    <td><img src="screenshots/medicine_shedule.png" width="180"/></td>
   </tr>
 </table>
 </div>
@@ -85,7 +85,7 @@
   <tr>
     <td><img src="screenshots/confirm_dose.png" width="180"/></td>
     <td><img src="screenshots/add_medicine.png" width="180"/></td>
-    <td><img src="screenshots/patient_profile.png" width="180"/></td>
+    <td><img src="screenshots/patient_profile.jpg" width="180"/></td>
   </tr>
 </table>
 </div>
